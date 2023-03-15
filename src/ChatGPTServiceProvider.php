@@ -15,11 +15,13 @@ class ChatGPTServiceProvider extends ServiceProvider
     public function boot()
     {
         // Load the package routes
-       // $this->registerCommands();
-       
-        $this->publishes([
-            __DIR__ . '/../config/chatgpt.php' => config_path('chatgpt.php'),
-        ], 'chatgpt-config');
+        // $this->registerCommands();
+        if ($this->app->runningInConsole()) {
+            $this->publishes([
+                __DIR__ . '/config/chatgpt.php' => config_path('chatgpt.php'),
+            ], 'chatgpt-config');
+        }
+        
        // $this->loadRoutesFrom(__DIR__ . '/routes/web.php');
     }
 
