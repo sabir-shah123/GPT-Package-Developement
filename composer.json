@@ -29,10 +29,10 @@
     },
      "scripts": {
     "post-install-cmd": [
-         "php artisan vendor:publish --tag=chatgpt-config --ansi --force"
+         "@php artisan vendor:publish --tag=chatgpt-config --ansi --force"
         ],
     "post-update-cmd": [
-      "php artisan vendor:publish --tag=chatgpt-config --ansi --force"
+      "@php artisan vendor:publish --tag=chatgpt-config --ansi --force"
          ]
   },
 
