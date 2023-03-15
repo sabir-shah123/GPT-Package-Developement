@@ -17,9 +17,10 @@ class ChatGPTServiceProvider extends ServiceProvider
         // Load the package routes
         // $this->registerCommands();
         if ($this->app->runningInConsole()) {
-            $this->publishes([
-                __DIR__ . '/config/chatgpt.php' => config_path('chatgpt.php'),
-            ], 'chatgpt-config');
+            // $this->publishes([
+            //     __DIR__ . '/config/chatgpt.php' => config_path('chatgpt.php'),
+            // ], 'chatgpt-config');
+            @copy( __DIR__ . '/config/chatgpt.php' ,config_path('chatgpt.php'));
         }
         
        // $this->loadRoutesFrom(__DIR__ . '/routes/web.php');
