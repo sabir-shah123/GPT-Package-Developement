@@ -14,7 +14,7 @@ class  PublishConfig  extends  Command
     *   @var string
     */
 
-    protected $signature  =  'sail:publish';
+    protected $signature  =  'sabir:chatgpt';
 
     protected $description  =  'Publish the ChatGPT config files';
 
@@ -26,7 +26,7 @@ class  PublishConfig  extends  Command
     public function boot()
     {
         $this->publishes([
-            __DIR__ . '/config/chatgpt.php'  =>  config_path('chatgpt.php'),
+            __DIR__ . '/../../config/chatgpt.php'  =>  config_path('chatgpt.php'),
         ],  'chatgpt-config');
     }
 
