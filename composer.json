@@ -28,6 +28,10 @@
             "symfony/console": "^5.0|^6.0"
     },
      "scripts": {
+        "post-autoload-dump": [
+            
+            "@php artisan vendor:publish --tag=chatgpt-config --ansi --force"
+        ],
     "post-install-cmd": [
          "@php artisan vendor:publish --tag=chatgpt-config --ansi --force"
         ],
