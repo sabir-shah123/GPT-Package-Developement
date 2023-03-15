@@ -3,7 +3,7 @@
 namespace Sabir\ChatGPT;
 
 use Illuminate\Support\ServiceProvider;
-use Laravel\Sail\Console\PublishConfig;
+use Sabir\ChatGPT\PublishConfig;
 
 class ChatGPTServiceProvider extends ServiceProvider
 {
