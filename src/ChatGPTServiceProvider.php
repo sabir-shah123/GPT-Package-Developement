@@ -3,7 +3,7 @@
 namespace Sabir\ChatGPT;
 
 use Illuminate\Support\ServiceProvider;
-use Sabir\ChatGPT\PublishConfig;
+use Sabir\ChatGPT\Console\Commands\PublishConfig;
 
 class ChatGPTServiceProvider extends ServiceProvider
 {
