@@ -1,6 +1,6 @@
 <?php
 
-namespace Laravel\Sail\Console;
+namespace Sabir\ChatGPT\Console\Commands;
 
 use Illuminate\Console\Command;
 
