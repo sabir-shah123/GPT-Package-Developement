@@ -23,9 +23,16 @@
     },
     "require": { 
         "php": ">=7.0.0",
-        "guzzlehttp/guzzle": "^7.0.1"
+        "guzzlehttp/guzzle": "^7.0.1",
+        "illuminate/support": "^8.77|^9.27"
     },
 
-    "minimum-stability" : "dev"
+    "minimum-stability" : "dev",
+    "prefer-stable": true,
+    "extra": {
+        "branch-alias": {
+            "dev-main": "1.1-dev"
+        }
+    }
     
 }
