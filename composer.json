@@ -33,6 +33,12 @@
     "extra": {
         "branch-alias": {
             "dev-main": "1.1-dev"
+        },
+         "laravel": {
+            "providers": [
+                "Sabir\\ChatGPT\\ChatGPTServiceProvider"
+            ]
+           
         }
     }
     
