@@ -18,6 +18,9 @@
           "Sabir\\ChatGPT\\": "src/"
         }
     },
-    "require": { }
+    "require": { 
+        "php": ">=7.0.0",
+        "guzzlehttp/guzzle": "^7.0.1"
+    }
     
 }
