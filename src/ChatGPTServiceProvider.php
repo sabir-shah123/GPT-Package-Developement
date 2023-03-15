@@ -40,9 +40,9 @@ class ChatGPTServiceProvider extends ServiceProvider
     protected function registerCommands()
     {
         if ($this->app->runningInConsole()) {
-            $this->commands([
-                PublishConfig::class,
-            ]);
+            // $this->commands([
+            //     PublishConfig::class,
+            // ]);
         }
     }
 
