@@ -39,19 +39,79 @@ class ChatGPT
         return json_decode($response->getBody()->getContents());
     }
 
-    public function Chat($message)
+    // public function Chat($message)
+    // {
+    //     $messages = [
+    //         [
+    //             'role' => 'user',
+    //             'content' => $message,
+    //         ],
+    //     ];
+    //     $data = [
+    //         'model' => config('chatgpt.model'),
+    //         'messages' => $messages,
+    //     ];
+    //     return $this->post('chat/completions', $data);
+    // }
+
+    public function Chat($message, $type = 'davinci', $options = [])
     {
-        $messages = [
-            [
-                'role' => 'user',
-                'content' => $message,
-            ],
-        ];
-        $data = [
-            'model' => config('chatgpt.model'),
-            'messages' => $messages,
-        ];
-        return $this->post('chat/completions', $data);
+        $model = config('chatgpt.model');
+
+        switch ($type) {
+            case 'chat':
+                $url = 'chat/completions';
+                $data = [
+                    'model' => $model,
+                    'prompt' => $message,
+                    'temperature' => $options['temperature'] ?? 0.5,
+                    'max_tokens' => $options['max_tokens'] ?? 60,
+                    'top_p' => $options['top_p'] ?? 1,
+                    'frequency_penalty' => $options['frequency_penalty'] ?? 0,
+                    'presence_penalty' => $options['presence_penalty'] ?? 0,
+                    'stop' => $options['stop'] ?? null,
+                    'n' => $options['n'] ?? 1,
+                    'stream' => $options['stream'] ?? false,
+                    'logprobs' => $options['logprobs'] ?? null,
+                    'echo' => $options['echo'] ?? false,
+                    'messages' => [
+                        [
+                            'type' => 'text',
+                            'text' => $message,
+                        ]
+                    ],
+                ];
+                break;
+
+            case 'davinci':
+            case 'curie':
+            case 'babbage':
+            case 'ada':
+                $url = 'completions';
+                $data = [
+                    'model' => 'text-davinci-002', // This should be changed to the appropriate model ID for the chosen API type
+                    'prompt' => $message,
+                    'temperature' => $options['temperature'] ?? 0.5,
+                    'max_tokens' => $options['max_tokens'] ?? 60,
+                    'top_p' => $options['top_p'] ?? 1,
+                    'frequency_penalty' => $options['frequency_penalty'] ?? 0,
+                    'presence_penalty' => $options['presence_penalty'] ?? 0,
+                    'stop' => $options['stop'] ?? null,
+                    'n' => $options['n'] ?? 1,
+                    'stream' => $options['stream'] ?? false,
+                    'logprobs' => $options['logprobs'] ?? null,
+                    'echo' => $options['echo'] ?? false,
+                ];
+                break;
+
+                // Other cases...
+
+            default:
+                throw new Exception("Unsupported API type: $type");
+        }
+
+        $response = $this->post($url, $data);
+        return $response;
     }
 
 

@@ -2,7 +2,15 @@
     "name": "sabir/chatgpt",
     "description": "A Laravel package for interacting with ChatGPT APIs.",
     "type": "library",
-    "keywords": ["chatgpt", "chatbot", "gpt-3", "gpt3", "gpt", "api", "laravel"],
+    "keywords": [
+        "chatgpt",
+        "chatbot",
+        "gpt-3",
+        "gpt3",
+        "gpt",
+        "api",
+        "laravel"
+    ],
     "license": "MIT",
     "version": "1.0.0",
     "authors": [
@@ -18,40 +26,36 @@
     },
     "autoload-dev": {
         "psr-4": {
-          "Sabir\\ChatGPT\\": "src/"
+            "Sabir\\ChatGPT\\": "src/"
         }
     },
-    "require": { 
+    "require": {
         "php": ">=7.0.0",
         "guzzlehttp/guzzle": "^7.0.1",
         "illuminate/support": "^8.77|^9.27",
-            "symfony/console": "^5.0|^6.0"
+        "symfony/console": "^5.0|^6.0"
     },
-     "scripts": {
+    "scripts": {
         "post-autoload-dump": [
-            
             "@php artisan vendor:publish --tag=chatgpt-config --ansi --force"
         ],
-    "post-install-cmd": [
-         "@php artisan vendor:publish --tag=chatgpt-config --ansi --force"
+        "post-install-cmd": [
+            "@php artisan vendor:publish --tag=chatgpt-config --ansi --force"
         ],
-    "post-update-cmd": [
-      "@php artisan vendor:publish --tag=chatgpt-config --ansi --force"
-         ]
-  },
-
-    "minimum-stability" : "dev",
+        "post-update-cmd": [
+            "@php artisan vendor:publish --tag=chatgpt-config --ansi --force"
+        ]
+    },
+    "minimum-stability": "dev",
     "prefer-stable": true,
     "extra": {
         "branch-alias": {
             "dev-main": "1.1-dev"
         },
-         "laravel": {
+        "laravel": {
             "providers": [
                 "Sabir\\ChatGPT\\ChatGPTServiceProvider"
             ]
-           
         }
     }
-    
 }
