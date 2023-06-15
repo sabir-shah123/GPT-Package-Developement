@@ -2,6 +2,8 @@
 
 You just need to install the package via
 composer require sabir/chatgpt:dev-master
+after that for run the following command
+ "php artisan vendor:publish --tag=chatgpt-config --ansi --force"
 
 after that you just need to go to the .enf file placed at your root folder and have tp set the API key of opernai
 CHAT_API=*************
