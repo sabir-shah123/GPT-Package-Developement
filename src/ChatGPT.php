@@ -39,21 +39,6 @@ class ChatGPT
         return json_decode($response->getBody()->getContents());
     }
 
-    // public function Chat($message)
-    // {
-    //     $messages = [
-    //         [
-    //             'role' => 'user',
-    //             'content' => $message,
-    //         ],
-    //     ];
-    //     $data = [
-    //         'model' => config('chatgpt.model'),
-    //         'messages' => $messages,
-    //     ];
-    //     return $this->post('chat/completions', $data);
-    // }
-
     public function Chat($message, $type = 'davinci', $options = [])
     {
         $model = config('chatgpt.model');
@@ -89,7 +74,7 @@ class ChatGPT
             case 'ada':
                 $url = 'completions';
                 $data = [
-                    'model' => 'text-davinci-002', // This should be changed to the appropriate model ID for the chosen API type
+                    'model' => $model, // This should be changed to the appropriate model ID for the chosen API type
                     'prompt' => $message,
                     'temperature' => $options['temperature'] ?? 0.5,
                     'max_tokens' => $options['max_tokens'] ?? 60,
